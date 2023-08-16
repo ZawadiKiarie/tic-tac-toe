@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2D8D8;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  font-family: "eigerdals", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+  margin-bottom: 10px;;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  /* background-color: #F2D8D8; */
+  /* box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1); */
+}
+
+.upper-ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.x-o-ctn {
+  display: flex;
+}
+
+.x-o-ctn button {
+  padding: 3px 85px;
+  background-color: white;
+  border: 1.5px solid black;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.x-btn {
+  margin-right: 15px;
+}
+
+.btn-ctn {
+  width: 380px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-ctn button {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 5px;;
+  background-color: #545B77;
+}
+
+.popup {
+  display: none;
+}
+
+.lower-ctn {
+  margin-top: 15px;
+}
+
+.restart-game {
+  padding: 5px 130px;
+  background-color: white;
+  border: 1.5px solid black;
+  font-size: 20px;
+  border-radius: 5px;
+}
