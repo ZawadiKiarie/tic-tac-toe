@@ -83,3 +83,14 @@ body {
   font-size: 20px;
   border-radius: 5px;
 }
+
+
+#status{
+  padding: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.win{
+  animation: winAnimation ease-in-out 1s infinite;
+}
