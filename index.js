@@ -1,6 +1,10 @@
 const buttons = document.querySelectorAll('.marker-btn');
 const btnRestart = document.querySelector('.restart-game');
 const statusTxt=document.querySelector('#status');
+const winnerModal = document.getElementById('winnerModal');
+const winnerMessage = document.getElementById('winnerMessage');
+const newRoundBtn = document.getElementById('newRoundBtn');
+// const newGameBtn = document.getElementById('newGameBtn');
 let running = false;
 
 const createPlayer = (name, marker) => {
@@ -31,7 +35,11 @@ const GameBoard = (() => {
   const init = () => {
     buttons.forEach((button) => button.addEventListener('click', () => buttonClick(button)));
     btnRestart.addEventListener('click', restartGame);
-    statusTxt.textContent=`${currentPlayer.name} Your Turn`;
+    statusTxt.textContent=`Player ${currentPlayer.marker}'s turn`;
+    newRoundBtn.addEventListener('click', restartGame);
+    // newGameBtn.addEventListener('click', () => {
+    //   window.location.href = '../mode-selection/mode-selection.html';
+    // });
     running = true;
   }
 
@@ -47,11 +55,12 @@ const GameBoard = (() => {
   const updateButton = (button, index) => {
     gameboard[index] = currentPlayer.marker;
     button.innerHTML = currentPlayer.marker;
+    button.classList.add(`style-${currentPlayer.marker.toLowerCase()}`);
   }
 
   const changePlayer = () => {
     currentPlayer = (currentPlayer == player1) ? player2 : player1;
-    statusTxt.textContent=`${currentPlayer.name} Your Turn`;
+    statusTxt.textContent=`Player ${currentPlayer.marker}'s turn`;
   }
 
   const checkWinner = () => {
@@ -73,10 +82,12 @@ const GameBoard = (() => {
     }
 
     if(isWon) {
-      statusTxt.textContent=`${currentPlayer.name} Won..`;
+      winnerMessage.textContent=`${currentPlayer.name} Won!`;
+      winnerModal.style.display = 'block';
       running = false;
     }else if(!gameboard.flat().some(cell => cell === "")){
-      statusTxt.textContent=`Game Draw..!`;
+      winnerMessage.textContent= 'Game Draw!';
+      winnerModal.style.display = 'block';
       running = false;
     }else {
       changePlayer();
@@ -84,10 +95,11 @@ const GameBoard = (() => {
   }
 
   const restartGame = () => {
+    winnerModal.style.display = 'none';
     gameboard = ["", "", "", "", "", "", "", "", ""];
     currentPlayer = player1;
     running = true;
-    statusTxt.textContent = `${currentPlayer.name} Your turn`;
+    statusTxt.textContent = `Player ${currentPlayer.marker}'s turn`;
 
     buttons.forEach(button => {
       button.innerHTML = "";
@@ -101,28 +113,3 @@ const GameBoard = (() => {
 })();
 
 GameBoard.init();
-  // const displayMarker = () => {
-  //   buttons.forEach((button, index) => {
-  //     const row = Math.floor(index / 3);
-  //     const col = index % 3;
-  //     button.textContent = gameboard[row][col];
-  //   })
-  // }
-
-  //gameboard represented as a 2D array
-// Variables to keep track of player
-//Event Listeners to detect when player clicks on square on gameboard
-//functions to check for a win or draw
-//game loop to handle flow of game
-
- // const addMarker = (button, player) => {
-  //   const index = parseInt(button.dataset.index);
-  //   const row = Math.floor(index / 3);
-  //   const col = index % 3;
-
-  //   if(gameboard[row][col] === ''){
-  //     gameboard[row][col] = player.marker;
-  //     button.textContent = player.marker;
-  //     displayMarker();
-  //   }
-  // }

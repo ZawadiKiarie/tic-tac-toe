@@ -14,20 +14,7 @@
 <body>
   <div class="container">
     <div class="heading">Tic-Tac-Toe</div>
-    <div class="upper-ctn">
-      <div class="select-ctn">
-        <select name="level" id="level">
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-          <option value="unbeatable">Unbeatable</option>
-        </select>
-      </div>
-      <div class="x-o-ctn">
-        <button class="x-btn">x</button>
-        <button class="o-btn">o</button>
-      </div>
-    </div>
+    <div id="status">Play Now</div>
     <div class="middle-ctn">
       <div class="btn-ctn">
         <button data-index="0" id="0" class="marker-btn"></button>
@@ -45,10 +32,16 @@
       <button class="restart-game">Restart game</button>
     </div>
 
-    <div id="status">Play Now</div>
     <div class="popup">
       <div id="message"></div>
       <button class="popup-restart-btn">New Game</button>
+    </div>
+  </div>
+
+  <div class="modal" id="winnerModal">
+    <div class="modal-content">
+      <div id="winnerMessage"></div>
+      <button id="newRoundBtn">New Round</button>
     </div>
   </div>
 </body>
